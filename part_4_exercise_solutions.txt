@@ -1,0 +1,37 @@
+Exercise 1: Kara Melton
+SELECT * FROM articles WHERE author_id=(SELECT id FROM authors WHERE name = 'Kara Melton');
+
+Exercise 2: Ontario
+SELECT * FROM cities WHERE province_id=(SELECT id FROM provinces WHERE name = 'Ontario');
+
+Exercise 3: Coding Bootcamps Author
+SELECT * FROM authors WHERE id = (SELECT author_id FROM articles WHERE title = 'Coding Bootcamps and Emotional Labor');
+answer: Tilde Ann Thurium
+
+Exercise 4:
+SELECT COUNT(DISTINCT name) FROM provinces WHERE country_id=(SELECT id FROM countries WHERE name='Canada');
+answer: 13
+
+Exercise 5:
+SELECT COUNT(name) FROM persons WHERE residence_id=(SELECT id FROM residences WHERE address='4740 McDermott Street');
+answer: 2
+
+Exercise 6:
+SELECT * FROM cities WHERE id=(SELECT city_id FROM residences WHERE address='4740 McDermott Street');
+answer: Ottawa
+
+Exercise 7:
+SELECT * FROM provinces WHERE id=(SELECT province_id FROM cities WHERE id=(SELECT city_id FROM residences WHERE address='4740 McDermott Street'));
+answer: Ontario
+
+Exercise 8:
+SELECT * FROM countries WHERE id=(SELECT country_id FROM provinces WHERE id=(SELECT province_id FROM cities WHERE id=(SELECT city_id FROM residences WHERE address='4740 McDermott Street')));
+answer: Canada
+
+Exercise 9:
+SELECT * FROM countries WHERE id=(SELECT country_id FROM provinces WHERE id=(SELECT province_id FROM cities WHERE id=(SELECT city_id FROM residences WHERE id=(SELECT residence_id FROM persons WHERE name='Destini Davis'))));
+answer: Canada
+
+Exercise 10:
+SELECT COUNT(DISTINCT title) FROM articles WHERE author_id=(SELECT id FROM authors WHERE name='Aditya Mukerjee');
+answer: 1
